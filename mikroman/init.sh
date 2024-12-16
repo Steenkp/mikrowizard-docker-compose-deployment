@@ -8,9 +8,22 @@ else
 fi
 
 
+# First Check if db is ready and accepting connections
+
+python3 /app/testdb.py
+
+# Check if the Python script ran successfully
+if [ $? -ne 0 ]; then
+    echo "An error occurred while executing the SQL commands."
+    exit 1
+else
+    echo "Good News! Database is Running. :)"
+fi
+
 CONTAINER_ALREADY_STARTED="CONTAINER_ALREADY_STARTED_PLACEHOLDER"
 if [ ! -e $CONTAINER_ALREADY_STARTED ]; then
     echo "-- Initializing the mikroman for first run  --"
+
     # YOUR_JUST_ONCE_LOGIC_HERE
     cd /app && export PYTHONPATH=/app/py && export PYSRV_CONFIG_PATH=/conf/server-conf.json && python3 scripts/dbmigrate.py
 
@@ -49,18 +62,18 @@ cat << EOF1 | tee init.sql >/dev/null
     INSERT INTO public.permissions(id, name, perms) VALUES (3, 'write', '{"api": true, "dude": false, "ftp": false, "local": true, "password": true, "policy": false, "read": true, "reboot": true, "rest-api": true, "romon": true, "sensitive": true, "sniff": true, "ssh": true, "telnet": true, "test": true, "tikapp": true, "web": true, "winbox": true, "write": true}');
     INSERT INTO public.user_group_perm_rel(group_id, user_id, perm_id) VALUES ( 1, '37cc36e0-afec-4545-9219-94655805868b', 1);
 EOF1
-# Run the Python script
-python3 /app/initpy.py
+    # Run the Python script
+    python3 /app/initpy.py
 
-# Check if the Python script ran successfully
-if [ $? -ne 0 ]; then
-    echo "An error occurred while executing the SQL commands."
-else
-    touch $CONTAINER_ALREADY_STARTED
-    echo "SQL commands executed successfully."
-fi
-    cron
-    uwsgi --ini /app/conf/uwsgi.ini:uwsgi-production --touch-reload=/app/reload
+    # Check if the Python script ran successfully
+    if [ $? -ne 0 ]; then
+        echo "An error occurred while executing the SQL commands."
+    else
+        touch $CONTAINER_ALREADY_STARTED
+        echo "SQL commands executed successfully."
+    fi
+        cron
+        uwsgi --ini /app/conf/uwsgi.ini:uwsgi-production --touch-reload=/app/reload
 else
     cron
     uwsgi --ini /app/conf/uwsgi.ini:uwsgi-production --touch-reload=/app/reload

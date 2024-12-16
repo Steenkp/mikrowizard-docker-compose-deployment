@@ -31,6 +31,8 @@ COPY server-conf.json /conf/
 ARG AM_I_IN_A_DOCKER_CONTAINER=Yes
 COPY init.sh /app/ 
 COPY initpy.py /app/ 
+COPY testdb.py /app/ 
+
 RUN chmod +x /app/init.sh 
 
 # background spooler dir
