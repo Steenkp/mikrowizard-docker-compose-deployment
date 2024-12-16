@@ -31,7 +31,7 @@ This repository provides a full Docker-based setup for deploying MikroWizard ser
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <repository-url> mikrowizard
+git clone https://github.com/MikroWizard/docker-compose-deployment.git mikrowizard
 cd mikrowizard
 ```
 
