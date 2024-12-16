@@ -70,7 +70,7 @@ This script will:
 Use Docker Compose to build and start the services:
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 This command will:
