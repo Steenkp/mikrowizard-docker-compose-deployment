@@ -1,0 +1,17 @@
+{
+    "name": "python server config template - rename me",
+    "PYSRV_IS_PRODUCTION": "1",
+    "PYSRV_DATABASE_HOST": "127.0.0.1",
+    "PYSRV_DATABASE_HOST_POSTGRESQL": "127.0.0.1",
+    "PYSRV_DATABASE_PORT": "5432",
+    "PYSRV_DATABASE_NAME": "mikrowizard_db",
+    "PYSRV_DATABASE_USER": "mikrowizard_user",
+    "PYSRV_DATABASE_PASSWORD": "securepassword",
+    "PYSRV_CRYPT_KEY": "bN0PJaVMpV7e4NGE8cLF3FECgY_nofYDuBtlLxX7pWg=",
+    "PYSRV_BACKUP_FOLDER":"/backups/",
+    "PYSRV_FIRM_FOLDER":"/firms/",
+    "PYSRV_COOKIE_HTTPS_ONLY": false,
+    "PYSRV_REDIS_HOST": "127.0.0.1:6379",
+    "PYSRV_DOMAIN_NAME": "",
+    "PYSRV_CORS_ALLOW_ORIGIN": "*"
+}

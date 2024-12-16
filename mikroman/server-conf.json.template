@@ -1,0 +1,14 @@
+
+{
+    "name": "python server config template - rename me",
+    "PYSRV_IS_PRODUCTION": "1",
+    "PYSRV_DATABASE_HOST": "127.0.0.1",
+    "PYSRV_DATABASE_PORT": "5432",
+    "PYSRV_DATABASE_NAME": "${MW_DB_NAME}",
+    "PYSRV_DATABASE_USER": "${MW_DB_USER}",
+    "PYSRV_DATABASE_PASSWORD": "${MW_DB_PASSWORD}",
+    "PYSRV_CRYPT_KEY": "${MW_encryptKey}",
+    "PYSRV_COOKIE_HTTPS_ONLY": false,
+    "PYSRV_REDIS_HOST": "127.0.0.1:6379",
+    "PYSRV_CORS_ALLOW_ORIGIN": "*"
+}
