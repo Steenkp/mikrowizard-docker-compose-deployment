@@ -20,7 +20,7 @@ RUN chmod 0644 /etc/cron.d/mwcrontab
 
 RUN crontab /etc/cron.d/mwcrontab
 
-COPY dist/mikrofront /usr/share/nginx/html
+COPY dist/html /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80

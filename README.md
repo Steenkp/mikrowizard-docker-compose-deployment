@@ -65,6 +65,18 @@ This script will:
 - Ensure proper permissions.
 - Create the needed configuration Files
 
+
+Download Latest release of frontend and extract its content to `mikrofront/dist` folder
+Find latest release from following url:
+https://github.com/MikroWizard/mikrofront/releases
+
+```bash
+cd mikrofront/dist/
+wget https://github.com/MikroWizard/mikrofront/releases/download/1.0.2-stable/mikrofront-1.0.2.tar.gz
+tar xvzf mikrofront*.tar.gz
+```
+ - To verify the contents make sure there is a `html` folder inside `mikrofront/dist` folder with lots of html,js files
+
 ### Step 4: Start the Services
 
 Use Docker Compose to build and start the services:
@@ -115,7 +127,7 @@ Host directories `conf`, `firmware`, and `backups` are mapped to container paths
 ### Common Issues
 
 1. **Database Connection Errors**:
-   - Verify the `DB_HOST` in `.env` points to `host.docker.internal` or the appropriate host.
+   - Verify the `DB_HOST` in `.env` points to `host.docker.internal` or the appropriate host leave it 127.0.0.1 for default installation.
 2. **Permission Denied**:
    - Ensure you have execution permissions for `prepare.sh`.
 
