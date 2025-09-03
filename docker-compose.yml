@@ -12,7 +12,7 @@ services:
       PGUSER: ${MW_DB_USER}
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
     healthcheck:
